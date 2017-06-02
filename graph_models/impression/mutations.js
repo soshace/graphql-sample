@@ -40,3 +40,19 @@ export let UpdateImpression = {
         });
     }
 };
+
+export let DeleteImpression = {
+  type: ImpressionType,
+    description: 'Delete Impression',
+    args: {
+      id: {
+          name: 'Impression ID',
+          type: new GraphQLNonNull(GraphQLID)
+      }
+    },
+    resolve: (root, args) => {
+      return new Promise(resolve => {
+         ImpressionModel.remove({_id: args.id}).then(() => resolve());
+      });
+    }
+};

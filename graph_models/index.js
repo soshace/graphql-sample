@@ -1,6 +1,6 @@
 import {GraphQLSchema, GraphQLObjectType} from 'graphql'
 import {Impression, Impressions} from './impression/queries'
-import {AddImpression, UpdateImpression} from './impression/mutations'
+import {AddImpression, UpdateImpression, DeleteImpression} from './impression/mutations'
 
 const Query = new GraphQLObjectType({
     name: 'Query',
@@ -13,7 +13,8 @@ const Mutations = new GraphQLObjectType({
     name: 'Mutation',
     fields: {
         impressionAdd: AddImpression,
-        impressionUpdate: UpdateImpression
+        impressionUpdate: UpdateImpression,
+        impressionDelete: DeleteImpression
     }
 });
 
